@@ -15,3 +15,6 @@ testcxx: cxxtest
 
 cxxtest: src/cxxtest.cc src/slidingWindowArr.cc src/slidingWindowArr.h
 	$(CXX) -o cxxtest src/cxxtest.cc src/slidingWindowArr.cc
+
+clean:
+	rm *.so build cxxtest SO

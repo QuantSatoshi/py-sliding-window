@@ -54,11 +54,11 @@ PyTypeObject WindowIteratorType = {
         .tp_name = "pyslidingwindow.SlidingWindowIterator",
     .tp_basicsize = sizeof(WindowIterator),
     .tp_itemsize = 0,
-    .tp_flags = Py_TPFLAGS_DEFAULT,
-    .tp_new = PyType_GenericNew,
     .tp_dealloc = iter_dealloc,
+    .tp_flags = Py_TPFLAGS_DEFAULT,
     .tp_iter = iter_iter,
     .tp_iternext = iter_iternext,
+    .tp_new = PyType_GenericNew,
 };
 
 template <class T>
@@ -256,15 +256,15 @@ public:
     static PyTypeObject SlidingWindow = {
         PyVarObject_HEAD_INIT(NULL, 0)
             .tp_name = "pyslidingwindow.SlidingWindow",
-        .tp_doc = "Very simple sliding window of values",
         .tp_basicsize = sizeof(SlidingWindowObject),
         .tp_itemsize = 0,
-        .tp_flags = Py_TPFLAGS_DEFAULT,
-        .tp_new = PyType_GenericNew,
-        .tp_init = init,
         .tp_dealloc = dealloc,
-        .tp_methods = methods,
+        .tp_flags = Py_TPFLAGS_DEFAULT,
+        .tp_doc = "Very simple sliding window of values",
         .tp_iter = iter,
+        .tp_methods = methods,
+        .tp_init = init,
+        .tp_new = PyType_GenericNew,
     };
 
     // Ready the type
