@@ -1,8 +1,8 @@
-import slidingwindow
+import pyslidingwindow
 
-print(dir(slidingwindow))
+print(dir(pyslidingwindow))
 
-o = slidingwindow.SlidingWindowInt(10)
+o = pyslidingwindow.SlidingWindowInt(10)
 print(o.max_len())
 print(o.length())
 try:
@@ -36,7 +36,7 @@ print([x for x in o])
     
 
 # Try it again for float
-o = slidingwindow.SlidingWindowFloat(10)
+o = pyslidingwindow.SlidingWindowFloat(10)
 print(o.max_len())
 print(o.length())
 try:
