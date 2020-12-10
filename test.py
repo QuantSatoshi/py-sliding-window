@@ -21,7 +21,7 @@ print(o.last() == 12)
 
 o.push(22)
 print(o.max_len() == 10)
-print(o.length() == 2)
+print(o.length() == 3)
 print(o.get(0) == 11)
 print(o.get(-1) == 22)
 

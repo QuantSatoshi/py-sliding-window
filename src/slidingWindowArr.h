@@ -17,15 +17,16 @@ public:
   T last() const;
 
   // return the ordered array so we can iterate through them
-  const T* toArr() const;
-  T* toArr();
+  const T *toArr() const;
+  T *toArr();
 
   // return raw unordered array. (faster). We can use this to calculate some metric like mean, std, etc.
-  const T* toUnorderedArr() const;
-  T* toUnorderedArr();
+  const T *toUnorderedArr() const;
+  T *toUnorderedArr();
 
   // check if date is equal to window size
   bool isFull() const;
+
 private:
   int _dataLen;
   int _maxLen;
@@ -34,4 +35,3 @@ private:
 };
 
 #endif
-

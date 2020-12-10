@@ -4,12 +4,13 @@
 
 template <class T>
 SlidingWindowArr<T>::SlidingWindowArr(int maxLen)
-  : _dataLen(0),
-    _maxLen(maxLen),
-    _cursor(0),
-    _historyValues(nullptr)
+    : _dataLen(0),
+      _maxLen(maxLen),
+      _cursor(0),
+      _historyValues(nullptr)
 {
-  if (_maxLen <= 0) {
+  if (_maxLen <= 0)
+  {
     throw std::runtime_error("maxLen must be positive");
   }
   _historyValues = new T[_maxLen]();
@@ -34,6 +35,12 @@ int SlidingWindowArr<T>::getMaxLen() const
 }
 
 template <class T>
+bool SlidingWindowArr<T>::isFull() const
+{
+  return _dataLen == _maxLen;
+}
+
+template <class T>
 void SlidingWindowArr<T>::push(T value)
 {
   if (_dataLen < _maxLen)
@@ -45,6 +52,10 @@ void SlidingWindowArr<T>::push(T value)
   {
     _historyValues[_cursor % _maxLen] = value;
     _cursor++;
+    if (_cursor >= _maxLen)
+    {
+      _cursor -= _maxLen;
+    }
   }
 }
 
@@ -59,10 +70,10 @@ T SlidingWindowArr<T>::get(int index) const
   {
     std::stringstream ss;
     ss
-      << "index "
-      << index
-      << " out of range 0:"
-      << _dataLen;
+        << "index "
+        << index
+        << " out of range 0:"
+        << _dataLen;
 
     throw std::runtime_error(ss.str());
   }
@@ -78,26 +89,30 @@ T SlidingWindowArr<T>::first() const
 template <class T>
 T SlidingWindowArr<T>::last() const
 {
-  return get(this->_dataLen-1);
+  return get(this->_dataLen - 1);
 }
 
 template <class T>
-const T* SlidingWindowArr<T>::toArr() const {
-  return _historyValues + _cursor%_dataLen;
+const T *SlidingWindowArr<T>::toArr() const
+{
+  return _historyValues + _cursor % _dataLen;
 }
 
 template <class T>
-T* SlidingWindowArr<T>::toArr() {
-  return _historyValues + _cursor%_dataLen;
+T *SlidingWindowArr<T>::toArr()
+{
+  return _historyValues + _cursor % _dataLen;
 }
 
 template <class T>
-const T* SlidingWindowArr<T>::toUnorderedArr() const {
+const T *SlidingWindowArr<T>::toUnorderedArr() const
+{
   return _historyValues;
 }
 
 template <class T>
-T* SlidingWindowArr<T>::toUnorderedArr() {
+T *SlidingWindowArr<T>::toUnorderedArr()
+{
   return _historyValues;
 }
 
