@@ -7,9 +7,9 @@ setup(
     author = 'Pat Miller',
     license = 'Copyright 2020, Quant Satoshi, All rights reserved',
     ext_modules = [Extension('slidingwindow',
-                             sources=['slidingwindow.cc',
-                                      'slidingWindowArr.cc'],
-                             depends=['slidingWindowArr.h'],
+                             sources=['src/slidingwindow.cc',
+                                      'src/slidingWindowArr.cc'],
+                             depends=['src/slidingWindowArr.h'],
     ),
     ]
 )
