@@ -5,7 +5,7 @@ test: testcxx testpython
 testpython: SO
 	python3 test.py
 
-SO: setup.py slidingWindowArr.cc slidingWindowArr.h slidingwindow.cc
+SO: setup.py src/slidingWindowArr.cc src/slidingWindowArr.h src/slidingwindow.cc
 	python3 setup.py build_ext --inplace
 	touch SO
 
@@ -13,5 +13,5 @@ SO: setup.py slidingWindowArr.cc slidingWindowArr.h slidingwindow.cc
 testcxx: cxxtest
 	./cxxtest
 
-cxxtest: cxxtest.cc slidingWindowArr.cc slidingWindowArr.h
-	$(CXX) -o cxxtest cxxtest.cc slidingWindowArr.cc
+cxxtest: src/cxxtest.cc src/slidingWindowArr.cc src/slidingWindowArr.h
+	$(CXX) -o cxxtest src/cxxtest.cc src/slidingWindowArr.cc

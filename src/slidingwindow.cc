@@ -126,6 +126,16 @@ class wrapper {
     return PyLong_FromLong(self->object->getLength());
   }
 
+  static PyObject* first(PyObject *pySelf, PyObject *Py_UNUSED(ignored)) {
+    SlidingWindowObject* self = reinterpret_cast<SlidingWindowObject*>(pySelf);
+    return PyLong_FromLong(self->object->first());
+  }
+
+  static PyObject* last(PyObject *pySelf, PyObject *Py_UNUSED(ignored)) {
+    SlidingWindowObject* self = reinterpret_cast<SlidingWindowObject*>(pySelf);
+    return PyLong_FromLong(self->object->last());
+  }
+
   static PyObject* get(PyObject *pySelf, PyObject *args) {
     SlidingWindowObject* self = reinterpret_cast<SlidingWindowObject*>(pySelf);
 
@@ -205,9 +215,11 @@ public:
       _type_description(nullptr)
   {
     static PyMethodDef methods[] = {
-      {"getMaxLen",getMaxLen,METH_NOARGS,"maximum size of buffer"},
-      {"getLength",getLength,METH_NOARGS,"working size of buffer"},
+      {"max_len",getMaxLen,METH_NOARGS,"maximum size of buffer"},
+      {"length",getLength,METH_NOARGS,"working size of buffer"},
       {"get", get, METH_VARARGS, "Get the i'th value"},
+      {"last", last, METH_VARARGS, "Get the last value"},
+      {"first", first, METH_VARARGS, "Get the first value"},
       {"push", push, METH_VARARGS, "Insert new value at cursor"},
       {nullptr}  /* Sentinel */
     };
