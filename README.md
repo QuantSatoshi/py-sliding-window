@@ -1,11 +1,11 @@
 # py-sliding-window
 
- python -m pip install git+https://github.com/quantsatoshi/py-sliding-window.git#main
+ pip install git+https://github.com/quantsatoshi/py-sliding-window.git#main
  
  ```
- import slidingwindow
+ import pyslidingwindow
 
- o = slidingwindow.SlidingWindowFloat(10)
+ o = pyslidingwindow.SlidingWindowFloat(10)
 print(o.max_len())
 print(o.length())
 try:
