@@ -2,9 +2,11 @@
 test: testcxx testpython
 
 .PHONY: testpython
-testpython: SO
-	python3 test.py
+testpython: SO smoke.py unittesting.py
+	python3 smoke.py
+	python3 unittesting.py
 
+.PHONY: SO
 SO: setup.py src/slidingWindowArr.cc src/slidingWindowArr.h src/slidingwindow.cc
 	python3 setup.py build_ext --inplace
 	touch SO
