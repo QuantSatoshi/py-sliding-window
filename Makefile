@@ -20,3 +20,12 @@ cxxtest: src/cxxtest.cc src/slidingWindowArr.cc src/slidingWindowArr.h
 
 clean:
 	rm -rf *.so build cxxtest SO
+
+format:
+	isort .
+	black .
+
+dev-install:
+	pip install black==20.8b1
+	pip install isort==5.6.4
+	
