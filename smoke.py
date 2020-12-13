@@ -8,13 +8,13 @@ print(o.length())
 try:
     o.get(0)
 except RuntimeError:
-    print('ok')
+    print("ok")
 
 o.push(11)
 o.push(12)
 print(o.max_len() == 10)
 print(o.length() == 2)
-print(o.get(0)== 11)
+print(o.get(0) == 11)
 print(o.get(-1) == 12)
 print(o.first() == 11)
 print(o.last() == 12)
@@ -30,10 +30,10 @@ for x in o:
 
 print([x for x in o])
 
-for i in range(100,200):
+for i in range(100, 200):
     o.push(i)
 print([x for x in o])
-    
+
 
 # Try it again for float
 o = pyslidingwindow.SlidingWindowFloat(10)
@@ -42,7 +42,7 @@ print(o.length())
 try:
     o.get(0)
 except RuntimeError:
-    print('ok')
+    print("ok")
 
 o.push(11.5)
 print(o.max_len())
@@ -61,8 +61,8 @@ for x in o:
 
 print([x for x in o])
 
-for i in range(100,200):
-    o.push(i+.5)
+for i in range(100, 200):
+    o.push(i + 0.5)
 print([x for x in o])
-    
+
 print(o.raw())

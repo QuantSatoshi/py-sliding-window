@@ -2,22 +2,31 @@
 
  pip install git+https://github.com/quantsatoshi/py-sliding-window.git#main
  
- ```
- import pyslidingwindow
+ ### usage
+```
+import pyslidingwindow
 
- o = pyslidingwindow.SlidingWindowFloat(10)
-print(o.max_len())
-print(o.length())
-try:
-    o.get(0)
-except RuntimeError:
-    print('ok')
+slidingwindow = pyslidingwindow.SlidingWindowFloat(3)
+slidingwindow.push(1).push(5)
+print(slidingwindow.max_len())
+print(slidingwindow.length())
 
-o.push(11.5)
-print(o.max_len())
-print(o.length())
-print(o.get(0))
-print(o.get(-1))
-print(o.last())
-print(o.first())
+print(slidingwindow.max_len() == 3)
+print(slidingwindow.length() == 2)
+print(slidingwindow.get(0) == 1)
+print(slidingwindow.get(-1) == 5)
+print(slidingwindow.last() == 5)
+print(slidingwindow.first() == 1)
+print(slidingwindow.is_full() == False)
+print(sum(slidingwindow) == 6)
+# all the above case should return true
+
+# get raw numpy array
+slidingwindow.push(7).push(9)
+np_raw = slidingwindow.raw() # returns numpy raw array (unordered)
+print(np_raw) # [9. 5. 7.]
+
+# get list ordered array
+ordered = list(slidingwindow)
+print(ordered) # [5.0, 7.0, 9.0]
 ```
