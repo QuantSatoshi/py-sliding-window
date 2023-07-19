@@ -5,3 +5,5 @@ build
 .mypy_cache
 SO
 cxxtest
+.DS_Store
+pyslidingwindow.egg-info
