@@ -65,4 +65,5 @@ for i in range(100, 200):
     o.push(i + 0.5)
 print([x for x in o])
 
+print("test raw")
 print(o.raw())

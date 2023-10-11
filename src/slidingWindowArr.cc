@@ -95,13 +95,47 @@ T SlidingWindowArr<T>::last() const
 template <class T>
 const T *SlidingWindowArr<T>::toArr() const
 {
-  return _historyValues + _cursor % _dataLen;
+  if (_dataLen == 0 || _cursor == 0)
+    {
+        // No rotation needed, return a copy of the original array
+        T *rotated = new T[_dataLen];
+        std::memcpy(rotated, _historyValues, _dataLen * sizeof(T));
+        return rotated;
+    }
+
+    T *rotated = new T[_dataLen];
+    int rotationCount = _cursor % _dataLen;
+
+    // Copy the values from the cursor position to the end of the array
+    std::memcpy(rotated, _historyValues + rotationCount, (_dataLen - rotationCount) * sizeof(T));
+
+    // Copy the values from the beginning of the array up to the cursor position
+    std::memcpy(rotated + (_dataLen - rotationCount), _historyValues, rotationCount * sizeof(T));
+
+    return rotated;
 }
 
 template <class T>
 T *SlidingWindowArr<T>::toArr()
 {
-  return _historyValues + _cursor % _dataLen;
+  if (_dataLen == 0 || _cursor == 0)
+    {
+        // No rotation needed, return a copy of the original array
+        T *rotated = new T[_dataLen];
+        std::memcpy(rotated, _historyValues, _dataLen * sizeof(T));
+        return rotated;
+    }
+
+    T *rotated = new T[_dataLen];
+    int rotationCount = _cursor % _dataLen;
+
+    // Copy the values from the cursor position to the end of the array
+    std::memcpy(rotated, _historyValues + rotationCount, (_dataLen - rotationCount) * sizeof(T));
+
+    // Copy the values from the beginning of the array up to the cursor position
+    std::memcpy(rotated + (_dataLen - rotationCount), _historyValues, rotationCount * sizeof(T));
+
+    return rotated;
 }
 
 template <class T>

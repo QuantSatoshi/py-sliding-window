@@ -150,9 +150,8 @@ class TestWindow(unittest.TestCase):
         self.assertEqual(a10.shape, (self.MAX,))
         self.assertNotIn(11, a10)
 
-        # We expect to see this to look like [9,0,1,..8]
+        # We expect to see this to look like [0,1,..8, 9]
         expected = list(range(self.MAX))
-        expected = expected[-1:] + expected[:-1]
         self.assertEqual(a10.tolist(), expected)
 
         return

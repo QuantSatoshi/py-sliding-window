@@ -271,7 +271,7 @@ class wrapper
 #ifdef USE_NUMPY
     SlidingWindowObject *self = reinterpret_cast<SlidingWindowObject *>(pySelf);
     // Get raw pointer and figure out how many real values we have
-    T *p = self->object->toUnorderedArr();
+    T *p = self->object->toArr();
     npy_intp dims[1] = {self->object->getLength()};
     PyObject *a /*owned*/ = PyArray_SimpleNewFromData(1, dims, numpy_type_of(p), p);
     if (!a)

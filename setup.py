@@ -16,7 +16,7 @@ if numpy is not None:
         include_dirs.append(numpy_include)
 setup(
     name="pyslidingwindow",
-    version="0.0.1",
+    version="0.0.2",
     description="Sliding window of floats wrapper to C++",
     author="Pat Miller",
     license="Copyright 2020, Quant Satoshi, All rights reserved",
