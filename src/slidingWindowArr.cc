@@ -1,6 +1,7 @@
 #include "slidingWindowArr.h"
 #include <stdexcept>
 #include <sstream>
+#include <cstring>
 
 template <class T>
 SlidingWindowArr<T>::SlidingWindowArr(int maxLen)
