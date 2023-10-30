@@ -30,3 +30,10 @@ print(np_raw) # [9. 5. 7.]
 ordered = list(slidingwindow)
 print(ordered) # [5.0, 7.0, 9.0]
 ```
+
+### dev run test
+```
+git clone https://github.com/QuantSatoshi/py-sliding-window.git
+cd py-sliding-window
+make test
+```
